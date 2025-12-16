@@ -1,5 +1,4 @@
 // C:\CamilaSerniotti-TPFinal\backend\src\app.js
-
 import express from 'express';
 import cors from 'cors';
 
@@ -12,10 +11,10 @@ const app = express();
 // 1. CONFIGURACIÓN DEL MIDDLEWARE GLOBAL
 // =========================================================
 
-// ✅ CAMBIO CLAVE: Esto permite que Vercel se conecte sin errores
+// ✅ Esto permite que Vercel se conecte sin restricciones de política CORS
 app.use(cors());
 
-// 🎯 Middleware para parsear JSON
+// 🎯 Middleware para parsear JSON - Debe ir antes de las rutas
 app.use(express.json());
 
 // ---------------------------------------------------------
@@ -28,7 +27,6 @@ app.get('/', (req, res) => {
 });
 
 // 🛑 RUTA DE AUTENTICACIÓN (Login/Registro)
-// Prefijo: /api/v1/auth 
 app.use('/api/v1/auth', authRoutes); 
 
 export default app;
